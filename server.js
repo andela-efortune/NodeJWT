@@ -8,7 +8,7 @@ const morgan      = require('morgan');
 const mongoose    = require('mongoose');
 
 const jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
-const config = require('./config'); // get our config file
+const config = require('./app/config'); // get our config file
 const User   = require('./app/models/user'); // get our mongoose model
 
 // =======================
@@ -30,7 +30,7 @@ app.use(morgan('dev'));
 // =======================
 // basic route
 app.get('/', (req, res) => {
-    res.send('Hello! The API is at http://localhost:' + port + '/api');
+    res.send(`Hello! The API is at http://localhost:${port}/api`);
 });
 
 // API ROUTES -------------------
@@ -40,4 +40,4 @@ app.get('/', (req, res) => {
 // start the server ======
 // =======================
 app.listen(port);
-console.log('Magic happens at http://localhost:' + port);
+console.log(`Magic happens at http://localhost:${port}`);
