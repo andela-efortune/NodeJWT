@@ -34,7 +34,23 @@ app.get('/', (req, res) => {
 });
 
 // API ROUTES -------------------
-// we'll get to these in a second
+app.get('/setup', (req, res) => {
+
+  // create a sample user
+  var nick = new User({
+    name: 'Fortune Ekeruo',
+    password: 'password',
+    admin: true
+  });
+
+  // save the sample user
+  nick.save((err) => {
+    if (err) throw err;
+
+    console.log('User saved successfully');
+    res.json({ success: true });
+  });
+});
 
 // =======================
 // start the server ======
